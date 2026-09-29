@@ -1,0 +1,31 @@
+# Services and nodes are Fluent cards with a square badge in the domain
+# colour (avatar decorator, which also turns the card's outline back to
+# neutral). An icon given with D2's icon key takes the badge's place.
+classes: {
+  component: {...${fluent.node}; width: 200; label.near: center-left; style: {fill: ${color.surface}; stroke: ${color.backend}; border-radius: 4}}
+  node: {...${fluent.node}; width: 200; label.near: center-left; style: {fill: ${color.surface}; stroke: ${color.backend}; border-radius: 4}}
+  # People are Fluent avatars, neutral colour, with the person icon (icon
+  # decorator), labelled underneath.
+  actor: {
+    shape: circle
+    width: 48
+    height: 48
+    label.near: outside-bottom-center
+    style: {fill: ${color.avatar}; stroke: ${color.avatar}; font-size: 14; font-color: ${color.text}; bold: true}
+  }
+  # Brand blue is Fluent's accent: the system being drawn. No fluent.node
+  # spread: its font colour would win over on-strong.
+  system: {
+    shape: rectangle
+    width: 200
+    height: 48
+    style: {fill: ${color.strong}; stroke: ${color.strong}; stroke-width: 1; border-radius: 4; font-size: 14; font-color: ${color.on-strong}; bold: true}
+  }
+  junction: {shape: circle; width: 8; height: 8; label: ""; style: {fill: ${color.line}; stroke: ${color.line}}}
+  location: {...${fluent.container}; style: {fill: ${color.surface-subtle}; stroke: ${color.divider}; border-radius: 8}}
+  zone: {...${fluent.container}; style: {fill: transparent; stroke: ${color.outline}; stroke-dash: 3; border-radius: 8}}
+  subsystem: {...${fluent.container}; style: {fill: ${color.canvas}; stroke: ${color.divider}; border-radius: 8}}
+  prescribed: {style.border-radius: 0}
+  connection: {...${fluent.line}; style.stroke: ${color.line}}
+  async: {...${fluent.line}; style: {stroke: ${color.line}; stroke-dash: 3}}
+}

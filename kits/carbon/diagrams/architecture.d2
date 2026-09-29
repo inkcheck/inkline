@@ -1,0 +1,28 @@
+# UMF vocabulary (kit p8). Logical elements have 8px corners; the prescribed
+# modifier squares them. Components and nodes carry a colour block (icon slot).
+classes: {
+  component: {...${carbon.node}; width: 240; label.near: center-left; style: {fill: ${color.surface}; stroke: ${color.outline}; border-radius: 8}}
+  node: {...${carbon.node}; width: 240; label.near: center-left; style: {fill: ${color.surface}; stroke: ${color.outline}; border-radius: 8}}
+  actor: {
+    shape: circle
+    width: 48
+    height: 48
+    label.near: outside-bottom-center
+    style: {fill: ${color.actor}; stroke: ${color.actor}; font-size: 14; font-color: ${color.text}; bold: true}
+  }
+  # The target system is a dark pill (kit p8). No carbon.node spread: its
+  # font colour would win over on-strong. shape overrides plain's oval.
+  system: {
+    shape: rectangle
+    width: 240
+    height: 48
+    style: {fill: ${color.strong}; stroke: ${color.strong}; stroke-width: 1; border-radius: 24; font-size: 14; font-color: ${color.on-strong}; bold: true}
+  }
+  junction: {shape: circle; width: 8; height: 8; label: ""; style: {fill: ${color.line}; stroke: ${color.line}}}
+  location: {...${carbon.container}; style: {fill: ${color.surface-subtle}; stroke: ${color.outline}; border-radius: 8}}
+  zone: {...${carbon.container}; style: {fill: transparent; stroke: ${color.outline}; stroke-dash: 2}}
+  subsystem: {...${carbon.container}; style: {fill: ${color.surface-subtle}; stroke: ${color.outline}}}
+  prescribed: {style.border-radius: 0}
+  connection: {...${carbon.line}; style.stroke: ${color.line}}
+  async: {...${carbon.line}; style: {stroke: ${color.line}; stroke-dash: 3}}
+}

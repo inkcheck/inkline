@@ -1,0 +1,36 @@
+# Services are tiles, as in AWS diagrams: a 48px rounded square in the
+# domain colour (filled by the fill decorator), labelled underneath. An icon
+# given with D2's icon key sits in the tile.
+classes: {
+  component: {
+    shape: rectangle
+    width: 48
+    height: 48
+    label.near: outside-bottom-center
+    style: {border-radius: 8; stroke: ${color.outline}; fill: ${color.outline}; stroke-width: 1; font-size: 14; font-color: ${color.text}; bold: true}
+  }
+  node: {...${cloudscape.node}; width: 200; style: {fill: ${color.surface}; stroke: ${color.card-border}; border-radius: 8}}
+  # People are Cloudscape avatars: the avatar grey, with its user-profile
+  # icon (icon decorator), labelled underneath.
+  actor: {
+    shape: circle
+    width: 48
+    height: 48
+    label.near: outside-bottom-center
+    style: {fill: ${color.avatar}; stroke: ${color.avatar}; font-size: 14; font-color: ${color.text}; bold: true}
+  }
+  # No cloudscape.node spread: its font colour would win over on-strong.
+  system: {
+    shape: rectangle
+    width: 200
+    height: 48
+    style: {fill: ${color.strong}; stroke: ${color.strong}; stroke-width: 1; border-radius: 24; font-size: 14; font-color: ${color.on-strong}; bold: true}
+  }
+  junction: {shape: circle; width: 8; height: 8; label: ""; style: {fill: ${color.line}; stroke: ${color.line}}}
+  location: {...${cloudscape.container}; style: {fill: ${color.surface-subtle}; stroke: ${color.divider}; border-radius: 16}}
+  zone: {...${cloudscape.container}; style: {fill: transparent; stroke: ${color.outline}; stroke-dash: 2; border-radius: 16}}
+  subsystem: {...${cloudscape.container}; style: {fill: ${color.surface}; stroke: ${color.divider}; border-radius: 16}}
+  prescribed: {style.border-radius: 0}
+  connection: {...${cloudscape.line}; style.stroke: ${color.line}}
+  async: {...${cloudscape.line}; style: {stroke: ${color.line}; stroke-dash: 3}}
+}

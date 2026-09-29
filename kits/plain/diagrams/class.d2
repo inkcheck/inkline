@@ -1,0 +1,16 @@
+# Relationships follow UML. Write edges from the child / implementer / whole /
+# dependent end: child -> parent {class: inheritance}, whole -> part
+# {class: composition}. The core gives every edge arrowhead slots at both ends
+# (see core/transform.go), so each role sets both.
+classes: {
+  class: {shape: class}
+  interface: {shape: class}
+  abstract: {shape: class}
+  enum: {shape: class}
+  association: {source-arrowhead.shape: none; target-arrowhead.shape: arrow}
+  inheritance: {source-arrowhead.shape: none; target-arrowhead: {shape: triangle; style.filled: false}}
+  realization: {style.stroke-dash: 4; source-arrowhead.shape: none; target-arrowhead: {shape: triangle; style.filled: false}}
+  composition: {source-arrowhead: {shape: diamond; style.filled: true}; target-arrowhead.shape: none}
+  aggregation: {source-arrowhead: {shape: diamond; style.filled: false}; target-arrowhead.shape: none}
+  dependency: {style.stroke-dash: 4; source-arrowhead.shape: none; target-arrowhead.shape: arrow}
+}

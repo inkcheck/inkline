@@ -1,0 +1,19 @@
+vars: { inkline: { diagram: er; design_system: carbon } }
+
+customer: {
+  id: int {constraint: primary_key}
+  name: string
+  email: string {constraint: unique}
+}
+order: {
+  id: int {constraint: primary_key}
+  customer_id: int {constraint: foreign_key}
+  placed_at: timestamp
+}
+line: {
+  order_id: int {constraint: [primary_key; foreign_key]}
+  sku: string {constraint: primary_key}
+  qty: int
+}
+customer.id -> order.customer_id: places {class: one-to-many}
+order.id -> line.order_id: contains {class: one-to-many}

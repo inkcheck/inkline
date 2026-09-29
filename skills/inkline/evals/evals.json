@@ -1,0 +1,47 @@
+{
+  "skill_name": "inkline",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Draw our checkout architecture in the Carbon style. A React web app and a mobile app call an API gateway in AWS us-east-1. Behind the gateway there's an orders service and a payments service; payments calls Stripe, which is outside AWS. Orders writes to Postgres, both services publish to a Kafka topic, and a notification worker consumes it. Save it as docs/checkout.d2 and render an SVG next to it.",
+      "expected_output": "A valid architecture inkline file with a carbon header, containers for AWS/region, roles and domain classes on nodes, and a rendered SVG.",
+      "files": [],
+      "assertions": [
+        "The diagram is saved at docs/checkout.d2",
+        "The header declares diagram: architecture and design_system: carbon",
+        "The file renders with inkline without errors",
+        "A rendered SVG sits next to the source in docs/",
+        "At least three different Carbon domain classes are used (e.g. application, data, network)",
+        "AWS / us-east-1 is a container holding the gateway and services, and Stripe is outside it",
+        "No hand-set colours or shapes (no style.fill / style.stroke / shape: overrides on nodes)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "can you turn this mermaid into a inkline diagram and give me light + dark svgs?\n\nstateDiagram-v2\n  [*] --> Draft\n  Draft --> InReview: submit\n  InReview --> Draft: request changes\n  InReview --> Approved: approve\n  Approved --> Published: publish\n  Published --> Archived: archive\n  Archived --> [*]",
+      "expected_output": "A state inkline file using quoted \"[*]\" pseudo-states and labelled transitions, rendered in both themes.",
+      "files": [],
+      "assertions": [
+        "The header declares diagram: state",
+        "Pseudo-states are written as quoted \"[*]\"",
+        "All six transitions are present with their labels (submit, request changes, approve, publish, archive)",
+        "The file renders with inkline without errors",
+        "Two SVGs exist, one light and one dark (different canvas colours)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I need a swimlane for our refund process, lanes as rows please. Customer requests a refund, Support reviews it. If it's over $500 Finance has to approve, otherwise Support approves it directly. Then the Payments system issues the refund and the customer gets an email. Render it to refund.svg.",
+      "expected_output": "A swimlanes inkline file with horizontal orientation, steps inside lanes, a decision with labelled branches, start/end roles, rendered without errors.",
+      "files": [],
+      "assertions": [
+        "The header declares diagram: swimlanes and orientation: horizontal",
+        "There are lanes for Customer, Support, Finance and Payments",
+        "The $500 branch is a decision with two labelled outgoing connections",
+        "Start and end steps use the start and end roles",
+        "The file renders with inkline without errors",
+        "refund.svg exists"
+      ]
+    }
+  ]
+}

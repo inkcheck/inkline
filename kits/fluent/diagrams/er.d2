@@ -1,0 +1,9 @@
+# sql_table: fill is the header, stroke is the row background.
+classes: {
+  entity: {style: {fill: ${color.surface-subtle}; stroke: ${color.surface}; font-color: ${color.heading}; font-size: 14}}
+  relation: {...${fluent.line}; style.stroke: ${color.line}}
+  one-to-one: {...${fluent.line}; style.stroke: ${color.line}}
+  one-to-many: {...${fluent.line}; style.stroke: ${color.line}}
+  many-to-one: {...${fluent.line}; style.stroke: ${color.line}}
+  many-to-many: {...${fluent.line}; style.stroke: ${color.line}}
+}

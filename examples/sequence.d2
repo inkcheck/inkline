@@ -1,0 +1,13 @@
+vars: { inkline: { diagram: sequence; design_system: carbon } }
+
+user: User {class: actor}
+app: Mobile app
+gw: API gateway
+svc: Order service
+
+user -> app: Place order
+app -> gw: POST /orders
+gw -> svc: create(order)
+svc -> gw: 201 Created {class: reply}
+gw -> app: order id {class: reply}
+svc -> svc: publish OrderCreated {class: async}

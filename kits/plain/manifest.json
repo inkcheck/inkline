@@ -1,0 +1,11 @@
+{
+  "name": "plain",
+  "description": "Structural defaults with D2's own look. Every design system extends it.",
+  "styles": [
+    "base.d2"
+  ],
+  "tokens": {
+    "light": "tokens-light.d2",
+    "dark": "tokens-dark.d2"
+  }
+}

@@ -1,0 +1,14 @@
+bin/
+# Rendered output; kit icons are source.
+*.svg
+!kits/**/*.svg
+
+# Local contexts and references
+context/
+
+# Release secrets (see .env.release.example) and GoReleaser output.
+.env.release
+dist/
+
+# Skill evaluation runs
+skills/inkline-workspace/

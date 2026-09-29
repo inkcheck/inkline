@@ -1,0 +1,19 @@
+classes: {
+  process: {...${fluent.node}; width: 200; label.near: center-left; style: {fill: ${color.surface}; stroke: ${color.card-border}; border-radius: 4}}
+  start: {...${fluent.node}; shape: rectangle; width: 200; style: {fill: ${color.success-subtle}; stroke: ${color.success-border}; border-radius: 24}}
+  end: {...${fluent.node}; shape: rectangle; width: 200; style: {fill: ${color.success-subtle}; stroke: ${color.success-border}; border-radius: 24}}
+  # A flat diamond, label inside. No fluent.node spread: its font colour
+  # would win over on-strong.
+  decision: {
+    shape: diamond
+    height: 64
+    style: {fill: ${color.strong}; stroke: ${color.strong}; stroke-width: 1; font-size: 14; font-color: ${color.on-strong}; bold: true}
+  }
+  io: {...${fluent.node}; shape: parallelogram; style: {fill: ${color.surface}; stroke: ${color.card-border}}}
+  subprocess: {...${fluent.node}; width: 200; label.near: center-left; style: {fill: ${color.surface}; stroke: ${color.card-border}; border-radius: 4; double-border: true}}
+  store: {...${fluent.node}; shape: cylinder; style: {fill: ${color.surface}; stroke: ${color.card-border}}}
+  note: {...${fluent.node}; shape: page; style: {fill: ${color.surface-subtle}; stroke: ${color.divider}}}
+  group: {...${fluent.container}; style: {fill: transparent; stroke: ${color.divider}; border-radius: 8}}
+  flow: {...${fluent.line}; style.stroke: ${color.line}}
+  optional: {...${fluent.line}; style: {stroke: ${color.line}; stroke-dash: 3}}
+}

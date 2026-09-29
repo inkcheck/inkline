@@ -1,0 +1,10 @@
+classes: {
+  participant: {...${fluent.node}; style: {fill: ${color.surface}; stroke: ${color.card-border}; border-radius: 4}}
+  # D2 sizes sequence actors itself, so an actor is a participant card with a
+  # Fluent avatar (avatar decorator). Same outline as participants: D2
+  # draws each lifeline in its participant's outline colour.
+  actor: {...${fluent.node}; shape: rectangle; width: 160; style: {fill: ${color.surface}; stroke: ${color.card-border}; border-radius: 4}}
+  message: {...${fluent.line}; style.stroke: ${color.line}}
+  reply: {...${fluent.line}; style: {stroke: ${color.line}; stroke-dash: 3}}
+  async: {...${fluent.line}; style.stroke: ${color.line}; target-arrowhead.shape: arrow}
+}

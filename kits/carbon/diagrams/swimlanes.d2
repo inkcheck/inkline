@@ -1,0 +1,17 @@
+classes: {
+  lane: {...${carbon.container}; vertical-gap: 48; horizontal-gap: 48; style: {fill: ${color.surface-subtle}; stroke: ${color.outline}}}
+  step: {...${carbon.node}; width: 192; label.near: center-left; style: {fill: ${color.surface}; stroke: ${color.outline}}}
+  start: {...${carbon.node}; shape: rectangle; width: 192; label.near: center-left; style: {fill: ${color.green-subtle}; stroke: ${color.green}}}
+  end: {...${carbon.node}; shape: rectangle; width: 192; label.near: center-left; style: {fill: ${color.green-subtle}; stroke: ${color.green}}}
+  # Lanes stretch every step to the lane's width, which keeps connections
+  # within a lane straight; so the decision is a flat diamond, label inside.
+  # No carbon.node spread: its font colour would win over on-strong.
+  decision: {
+    shape: diamond
+    height: 48
+    style: {fill: ${color.strong}; stroke: ${color.strong}; stroke-width: 1; font-size: 14; font-color: ${color.on-strong}; bold: true}
+  }
+  gap: {label: ""; height: 48; width: 8; style.opacity: 0}
+  flow: {...${carbon.line}; style.stroke: ${color.line}}
+  optional: {...${carbon.line}; style: {stroke: ${color.line}; stroke-dash: 3}}
+}

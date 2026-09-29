@@ -1,0 +1,15 @@
+# Kit p15: process nodes carry a top bar; start/end are green; decisions are
+# small dark diamonds with the label underneath; edge labels are pills.
+classes: {
+  process: {...${carbon.node}; width: 240; label.near: center-left; style: {fill: ${color.surface-subtle}; stroke: ${color.outline}}}
+  start: {...${carbon.node}; shape: rectangle; width: 240; label.near: center-left; style: {fill: ${color.green-subtle}; stroke: ${color.green}}}
+  end: {...${carbon.node}; shape: rectangle; width: 240; label.near: center-left; style: {fill: ${color.green-subtle}; stroke: ${color.green}}}
+  decision: {...${carbon.node}; shape: diamond; width: 48; label.near: outside-bottom-center; style: {fill: ${color.strong}; stroke: ${color.strong}}}
+  io: {...${carbon.node}; shape: parallelogram; style: {fill: ${color.surface-subtle}; stroke: ${color.outline}}}
+  subprocess: {...${carbon.node}; width: 240; label.near: center-left; style: {fill: ${color.surface-subtle}; stroke: ${color.outline}; double-border: true}}
+  store: {...${carbon.node}; shape: cylinder; style: {fill: ${color.surface}; stroke: ${color.outline}}}
+  note: {...${carbon.node}; shape: page; style: {fill: ${color.surface}; stroke: ${color.outline}}}
+  group: {...${carbon.container}; style: {fill: transparent; stroke: ${color.outline}}}
+  flow: {...${carbon.line}; style.stroke: ${color.line}}
+  optional: {...${carbon.line}; style: {stroke: ${color.line}; stroke-dash: 3}}
+}

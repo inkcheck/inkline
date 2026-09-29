@@ -1,0 +1,18 @@
+vars: { inkline: { diagram: swimlanes; design_system: carbon } }
+
+customer: Customer {
+  start: Submit order {class: start}
+  pay: Pay invoice
+}
+sales: Sales {
+  review: Review order
+  ok: Approved? {class: decision}
+}
+warehouse: Warehouse {
+  pick: Pick items
+  ship: Ship {class: end}
+}
+customer.start -> sales.review -> sales.ok
+sales.ok -> warehouse.pick: Yes
+sales.ok -> customer.start: No {class: optional}
+warehouse.pick -> customer.pay -> warehouse.ship

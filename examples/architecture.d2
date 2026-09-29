@@ -1,0 +1,37 @@
+vars: { inkline: { diagram: architecture; design_system: carbon } }
+
+user: User {class: actor}
+public: Public network {
+  internet: Internet {class: network}
+}
+cloud: IBM Cloud {
+  region: Dallas region {
+    class: prescribed
+    vpc: VPC A {
+      class: vpc
+      zone1: Dallas zone 1 {
+        class: zone
+        lb: Load balancer {class: network}
+        vsi1: VSI 1 {class: compute}
+      }
+      zone2: Dallas zone 2 {
+        class: zone
+        vsi2: VSI 2 {class: [compute; multiple]}
+      }
+    }
+  }
+  db: Documents database {class: [node; data]}
+}
+enterprise: Enterprise network {
+  apps: Enterprise applications {class: application}
+  dl: Direct Link {class: [network; added]}
+}
+
+user -> public.internet
+public.internet -> cloud.region.vpc.zone1.lb
+cloud.region.vpc.zone1.lb -> cloud.region.vpc.zone1.vsi1
+cloud.region.vpc.zone1.lb -> cloud.region.vpc.zone2.vsi2
+cloud.region.vpc.zone1.vsi1 -> cloud.db: Query
+cloud.region.vpc.zone2.vsi2 -> cloud.db: Query
+enterprise.dl -> cloud.region.vpc: {class: async}
+enterprise.apps -> enterprise.dl

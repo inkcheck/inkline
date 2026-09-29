@@ -1,0 +1,17 @@
+vars: { inkline: { diagram: state; design_system: carbon } }
+
+"[*]" -> pending: create
+pending -> stable: propagate
+pending -> pending_blocked: block
+pending_blocked -> pending: resolve
+stable -> updating: update
+updating -> stable: reconcile
+stable -> suspended: suspend
+suspended -> stable: restore
+cleanup: Cleanup {
+  "[*]" -> deleting
+  deleting -> deleted: propagate
+  deleted -> "[*]"
+}
+stable -> cleanup: delete
+cleanup -> "[*]"

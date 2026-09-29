@@ -1,0 +1,20 @@
+vars: { inkline: { diagram: flowchart; design_system: carbon } }
+
+start: Start {class: start}
+prereq: Meet prerequisites
+download: Download package
+check: Any nondefault installation condition met? {class: decision}
+default: Default installation
+nondefault: Nondefault installation
+configure: Configure
+test: Test {class: changed}
+setup: Setup {class: changed}
+end: End {class: end}
+
+start -> prereq -> check
+prereq -> download: {class: optional}
+check -> default: No
+check -> nondefault: Yes
+default -> configure
+nondefault -> configure
+configure -> test -> setup -> end

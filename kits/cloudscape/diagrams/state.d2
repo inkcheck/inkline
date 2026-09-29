@@ -1,0 +1,11 @@
+classes: {
+  state: {...${cloudscape.node}; label.near: center-left; style: {fill: ${color.surface}; stroke: ${color.card-border}; border-radius: 8}}
+  start: {shape: circle; width: 16; height: 16; label: ""; style: {fill: ${color.heading}; stroke: ${color.heading}}}
+  end: {shape: circle; width: 20; height: 20; label: ""; style: {fill: ${color.heading}; stroke: ${color.heading}; double-border: true}}
+  choice: {shape: diamond; width: 24; height: 24; label: ""; style: {fill: ${color.strong}; stroke: ${color.strong}}}
+  fork: {width: 96; height: 8; label: ""; style: {fill: ${color.heading}; stroke: ${color.heading}; border-radius: 4}}
+  join: {width: 96; height: 8; label: ""; style: {fill: ${color.heading}; stroke: ${color.heading}; border-radius: 4}}
+  note: {...${cloudscape.node}; shape: page; style: {fill: ${color.surface-subtle}; stroke: ${color.divider}}}
+  composite: {...${cloudscape.container}; style: {fill: ${color.surface-subtle}; stroke: ${color.divider}; border-radius: 16}}
+  transition: {...${cloudscape.line}; style.stroke: ${color.line}}
+}

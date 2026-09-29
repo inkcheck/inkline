@@ -1,0 +1,55 @@
+# Carbon: shared node and connector styles, modifiers and the domain colour key.
+# Shared style maps live in vars and are spread into role classes (...${carbon.x}).
+# D2 applies a spread (...${x}) after a map's own keys, so a spread cannot be
+# overridden in place. These shared maps therefore hold only what no class
+# changes; every class sets its own fill, stroke and corners.
+vars: {
+  carbon: {
+    # Large node: 48px tall, 1px outline, 14/18 semibold label (kit p1, p4).
+    node: {
+      height: 48
+      style: {stroke-width: 1; font-size: 14; font-color: ${color.text}; bold: true}
+    }
+    # Group / nesting container: label top-left (kit p1, p8).
+    container: {
+      label.near: top-left
+      style: {stroke-width: 1; font-size: 14; font-color: ${color.text}; bold: true}
+    }
+    # Connector: 1px, 12/16 regular label (kit p2, p4).
+    line: {
+      style: {stroke-width: 1; font-size: 12; font-color: ${color.text}; italic: false; bold: false}
+    }
+  }
+}
+
+classes: {
+  # Modifiers (kit p6, "Style"): multiple = offset lines, added = double line,
+  # changed = dashed, removed = struck through (strike decorator).
+  multiple: {style.multiple: true}
+  added: {style.double-border: true}
+  changed: {style.stroke-dash: 3}
+  removed: {}
+
+  # Domain colour key (kit p9). Sets the primary colour: outline, colour block
+  # and side bar all follow the stroke.
+  security: {style.stroke: ${color.red}}
+  devops: {style.stroke: ${color.magenta}}
+  application: {style.stroke: ${color.purple}}
+  data: {style.stroke: ${color.blue}}
+  # The kit's key groups data and storage together (Blue 60).
+  storage: {style.stroke: ${color.blue}}
+  network: {style.stroke: ${color.cyan}}
+  observability: {style.stroke: ${color.teal}}
+  vpc: {style.stroke: ${color.teal-dark}}
+  compute: {style.stroke: ${color.green}}
+  backend: {style.stroke: ${color.gray}}
+
+  # Marker classes for decorators, usable in any diagram.
+  sidebar: {}
+  topbar: {}
+  color-block: {}
+  pill: {}
+  # Fills the shape with its domain colour; for legend entries:
+  # vars.d2-legend.s: Security {class: [swatch; security]}
+  swatch: {}
+}

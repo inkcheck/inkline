@@ -1,0 +1,12 @@
+# Kit p13: states are Color 10 boxes with a side bar; pseudo-states are bullets.
+classes: {
+  state: {...${carbon.node}; label.near: center-left; style: {fill: ${color.surface-subtle}; stroke: ${color.outline}}}
+  start: {shape: circle; width: 16; height: 16; label: ""; style: {fill: ${color.text}; stroke: ${color.text}}}
+  end: {shape: circle; width: 20; height: 20; label: ""; style: {fill: ${color.text}; stroke: ${color.text}; double-border: true}}
+  choice: {shape: diamond; width: 24; height: 24; label: ""; style: {fill: ${color.strong}; stroke: ${color.strong}}}
+  fork: {width: 96; height: 8; label: ""; style: {fill: ${color.text}; stroke: ${color.text}}}
+  join: {width: 96; height: 8; label: ""; style: {fill: ${color.text}; stroke: ${color.text}}}
+  note: {...${carbon.node}; shape: page; style: {fill: ${color.surface}; stroke: ${color.outline}}}
+  composite: {...${carbon.container}; style: {fill: transparent; stroke: ${color.outline}}}
+  transition: {...${carbon.line}; style.stroke: ${color.line}}
+}

@@ -1,0 +1,13 @@
+# class shape: fill is the header, stroke is the body.
+classes: {
+  class: {style: {fill: ${color.strong}; stroke: ${color.surface}; font-color: ${color.on-strong}; font-size: 14}}
+  interface: {style: {fill: ${color.strong}; stroke: ${color.surface}; font-color: ${color.on-strong}; font-size: 14}}
+  abstract: {style: {fill: ${color.strong}; stroke: ${color.surface}; font-color: ${color.on-strong}; font-size: 14; italic: true}}
+  enum: {style: {fill: ${color.strong}; stroke: ${color.surface}; font-color: ${color.on-strong}; font-size: 14}}
+  association: {...${carbon.line}; style.stroke: ${color.line}}
+  inheritance: {...${carbon.line}; style.stroke: ${color.line}}
+  realization: {...${carbon.line}; style: {stroke: ${color.line}; stroke-dash: 3}}
+  composition: {...${carbon.line}; style.stroke: ${color.line}}
+  aggregation: {...${carbon.line}; style.stroke: ${color.line}}
+  dependency: {...${carbon.line}; style: {stroke: ${color.line}; stroke-dash: 3}}
+}

@@ -1,0 +1,24 @@
+vars: { inkline: { diagram: class; design_system: carbon } }
+
+Repository: {
+  class: interface
+  +find(id string): Order
+  +save(o Order): error
+}
+Order: {
+  +id: string
+  +lines: "[]Line"
+  +total(): Money
+}
+Line: {
+  +sku: string
+  +qty: int
+}
+SQLRepository: {
+  -db: "*sql.DB"
+  +find(id string): Order
+  +save(o Order): error
+}
+SQLRepository -> Repository: {class: realization}
+Order -> Line: {class: composition}
+Repository -> Order: {class: dependency}

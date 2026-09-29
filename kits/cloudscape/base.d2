@@ -1,0 +1,63 @@
+# Cloudscape: shared styles, modifiers, domain colours and AWS groupings.
+# Shared maps hold only what no class overrides: a spread (...${x}) wins over
+# a map's own keys, so every class sets its own fill, stroke and corners.
+vars: {
+  cloudscape: {
+    # A card: 48px tall, 1px border, 14px bold label (Cloudscape body size).
+    node: {
+      height: 48
+      style: {stroke-width: 1; font-size: 14; font-color: ${color.text}; bold: true}
+    }
+    # A container, labelled top-left like a Cloudscape container header.
+    container: {
+      label.near: top-left
+      style: {stroke-width: 1; font-size: 14; font-color: ${color.heading}; bold: true}
+    }
+    line: {
+      style: {stroke-width: 1; font-size: 12; font-color: ${color.text}; italic: false; bold: false}
+    }
+    # AWS groupings are square, labelled top-left, with no fill unless noted.
+    group: {
+      label.near: top-left
+      style: {stroke-width: 2; border-radius: 0; font-size: 14; font-color: ${color.heading}; bold: true}
+    }
+  }
+}
+
+classes: {
+  # Modifiers: multiple = offset copies, added = double
+  # outline, changed = dashed, removed = struck through (strike decorator).
+  # None of them recolours the node, so the domain colour stays.
+  multiple: {style.multiple: true}
+  added: {style.double-border: true}
+  changed: {style.stroke-dash: 3}
+  removed: {}
+
+  # Domain colours, following the service categories of AWS's architecture
+  # icons. They set the outline; architecture tiles and legend swatches are
+  # filled with it. storage is this kit's addition (S3, EBS, EFS).
+  security: {style.stroke: ${color.security}}
+  storage: {style.stroke: ${color.storage}}
+  devops: {style.stroke: ${color.devops}}
+  application: {style.stroke: ${color.application}}
+  data: {style.stroke: ${color.data}}
+  network: {style.stroke: ${color.network}}
+  observability: {style.stroke: ${color.observability}}
+  compute: {style.stroke: ${color.compute}}
+  backend: {style.stroke: ${color.backend}}
+
+  # AWS architecture groupings, for containers: {class: [location; vpc]}.
+  aws-cloud: {...${cloudscape.group}; style: {stroke: ${color.aws-cloud}; fill: transparent}}
+  region: {...${cloudscape.group}; style: {stroke: ${color.region}; stroke-dash: 4; fill: transparent}}
+  availability-zone: {...${cloudscape.group}; style: {stroke: ${color.availability-zone}; stroke-dash: 4; fill: transparent}}
+  vpc: {...${cloudscape.group}; style: {stroke: ${color.vpc}; fill: transparent}}
+  public-subnet: {...${cloudscape.group}; style: {stroke: ${color.public-subnet}; fill: ${color.public-subnet-fill}}}
+  private-subnet: {...${cloudscape.group}; style: {stroke: ${color.private-subnet}; fill: ${color.private-subnet-fill}}}
+  security-group: {...${cloudscape.group}; style: {stroke: ${color.security-group}; fill: transparent}}
+  auto-scaling-group: {...${cloudscape.group}; style: {stroke: ${color.auto-scaling-group}; stroke-dash: 4; fill: transparent}}
+  data-center: {...${cloudscape.group}; style: {stroke: ${color.data-center}; fill: transparent}}
+
+  # Marker classes for decorators.
+  swatch: {}
+  pill: {}
+}

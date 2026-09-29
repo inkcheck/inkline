@@ -1,0 +1,39 @@
+{
+  "name": "carbon",
+  "description": "The Carbon Design System for technical diagrams, following IBM's Technical diagrams kit (v2): IBM Plex Sans, 48px nodes, Cool Gray neutrals, domain colour key, UMF architecture vocabulary.",
+  "extends": "plain",
+  "tokens": {
+    "light": "tokens-light.d2",
+    "dark": "tokens-dark.d2"
+  },
+  "styles": [
+    "base.d2"
+  ],
+  "pad": 48,
+  "fonts": {
+    "regular": "fonts/IBMPlexSans-Regular.ttf",
+    "italic": "fonts/IBMPlexSans-Italic.ttf",
+    "bold": "fonts/IBMPlexSans-SemiBold.ttf",
+    "semibold": "fonts/IBMPlexSans-SemiBold.ttf"
+  },
+  "decorators": [
+    {"type": "bar", "side": "left", "size": 4, "classes": [ "sidebar" ]},
+    {"type": "bar", "side": "top", "size": 4, "classes": [ "topbar" ]},
+    {"type": "block", "size": 48, "classes": [ "color-block" ]},
+    {"type": "pill", "classes": [ "pill" ]},
+    {"type": "fill", "classes": [ "swatch" ]},
+    {"type": "legend"},
+    {"type": "strike", "classes": [ "removed" ]},
+    {"type": "bar", "side": "left", "size": 4, "classes": [ "location" ], "diagrams": [ "architecture" ]},
+    {"type": "block", "size": 48, "classes": [ "component", "node" ], "diagrams": [ "architecture" ]},
+    {"type": "pill", "classes": [ "connection", "async" ], "diagrams": [ "architecture" ]},
+    {"type": "bar", "side": "top", "size": 4, "classes": [ "process", "start", "end", "io", "subprocess" ], "diagrams": [ "flowchart" ]},
+    {"type": "pill", "classes": [ "flow", "optional" ], "diagrams": [ "flowchart", "swimlanes" ]},
+    {"type": "bar", "side": "left", "size": 4, "classes": [ "state", "composite" ], "diagrams": [ "state" ]},
+    {"type": "bar", "side": "left", "size": 4, "classes": [ "participant" ], "diagrams": [ "sequence" ]},
+    {"type": "bar", "side": "left", "size": 4, "classes": [ "lane" ], "diagrams": [ "swimlanes" ]},
+    {"type": "bar", "side": "top", "size": 4, "classes": [ "step", "start", "end" ], "diagrams": [ "swimlanes" ]},
+    {"type": "block", "size": 48, "classes": [ "actor" ], "diagrams": [ "sequence" ], "icon": "icons/user.svg"},
+    {"type": "icon", "classes": [ "actor" ], "diagrams": [ "architecture" ], "icon": "icons/user.svg"}
+  ]
+}

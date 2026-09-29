@@ -1,0 +1,15 @@
+{{- /*
+Shows an example diagram rendered by inkline, light and dark.
+
+@param {string} name  file stem under static/diagrams (e.g. architecture)
+@param {string} caption
+
+@example {{< diagram name="architecture" caption="An architecture diagram" >}}
+*/ -}}
+{{- $name := .Get "name" -}}
+{{- $caption := .Get "caption" | default $name -}}
+<figure class="inkline-diagram">
+  <img class="inkline-light" src="{{ (printf "diagrams/%s-light.svg" $name) | relURL }}" alt="{{ $caption }}" loading="lazy">
+  <img class="inkline-dark" src="{{ (printf "diagrams/%s-dark.svg" $name) | relURL }}" alt="{{ $caption }}" loading="lazy">
+  <figcaption>{{ $caption }}</figcaption>
+</figure>

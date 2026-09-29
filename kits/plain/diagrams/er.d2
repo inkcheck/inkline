@@ -1,0 +1,8 @@
+classes: {
+  entity: {shape: sql_table}
+  relation: {source-arrowhead.shape: none; target-arrowhead.shape: none}
+  one-to-one: {source-arrowhead.shape: cf-one-required; target-arrowhead.shape: cf-one-required}
+  one-to-many: {source-arrowhead.shape: cf-one-required; target-arrowhead.shape: cf-many}
+  many-to-one: {source-arrowhead.shape: cf-many; target-arrowhead.shape: cf-one-required}
+  many-to-many: {source-arrowhead.shape: cf-many; target-arrowhead.shape: cf-many}
+}

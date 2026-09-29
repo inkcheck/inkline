@@ -1,0 +1,96 @@
+# GoReleaser configuration for inkline. Run through `make release`, which checks
+# the prerequisites first; `make release-snapshot` builds locally without
+# publishing.
+version: 2
+
+project_name: inkline
+
+before:
+  hooks:
+    - go mod tidy
+    - go test ./...
+
+builds:
+  - id: inkline
+    main: ./cmd/inkline
+    binary: inkline
+    env:
+      - CGO_ENABLED=0
+    goos: [darwin, linux, windows]
+    goarch: [amd64, arm64]
+    ignore:
+      - goos: windows
+        goarch: arm64
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w
+      - -X main.version={{ .Version }}
+      - -X main.commit={{ .ShortCommit }}
+      - -X main.date={{ .Date }}
+    mod_timestamp: "{{ .CommitTimestamp }}"
+
+# One macOS binary for Intel and Apple silicon; it is what gets signed,
+# notarised and shipped in the Homebrew cask.
+#
+# Signing and notarisation use Apple's codesign and notarytool with keychain
+# credentials (scripts/notarize.sh), so a release must run on a Mac. Snapshots
+# skip them.
+universal_binaries:
+  - id: inkline
+    replace: true
+    hooks:
+      post:
+        - cmd: ./scripts/notarize.sh "{{ .Path }}" "{{ .IsSnapshot }}"
+          output: true
+
+archives:
+  - id: inkline
+    ids: [inkline]
+    name_template: >-
+      {{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ if eq .Arch "all" }}universal{{ else }}{{ .Arch }}{{ end }}
+    formats: [tar.gz]
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+    files:
+      - LICENSE
+      - NOTICE
+      - THIRD_PARTY_NOTICES.md
+      - README.md
+
+checksum:
+  name_template: checksums.txt
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
+
+release:
+  github:
+    owner: inkcheck
+    name: inkline
+  draft: false
+  prerelease: auto
+
+homebrew_casks:
+  - name: inkline
+    ids: [inkline]
+    binaries: [inkline]
+    description: Text-first technical diagrams on D2, styled by pluggable design systems.
+    homepage: https://github.com/inkcheck/inkline
+    license: Apache-2.0
+    directory: Casks
+    commit_author:
+      name: goreleaserbot
+      email: bot@goreleaser.com
+    commit_msg_template: "inkline {{ .Tag }}"
+    repository:
+      owner: inkcheck
+      name: homebrew-tap
+      branch: main
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"

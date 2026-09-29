@@ -1,0 +1,29 @@
+{
+  "name": "fluent",
+  "description": "Microsoft's Fluent 2 design system for technical diagrams: Selawik (Fluent's open substitute for Segoe UI), Fluent colour tokens, cards, square service badges in Fluent palette colours, neutral Fluent avatars, and brand blue kept for accents.",
+  "extends": "plain",
+  "tokens": {
+    "light": "tokens-light.d2",
+    "dark": "tokens-dark.d2"
+  },
+  "styles": [
+    "base.d2"
+  ],
+  "pad": 48,
+  "fonts": {
+    "regular": "fonts/Selawik-Regular.ttf",
+    "italic": "fonts/Selawik-Regular.ttf",
+    "bold": "fonts/Selawik-Semibold.ttf",
+    "semibold": "fonts/Selawik-Semibold.ttf"
+  },
+  "decorators": [
+    {"type": "fill", "classes": [ "swatch" ]},
+    {"type": "pill", "classes": [ "pill" ]},
+    {"type": "strike", "classes": [ "removed" ]},
+    {"type": "avatar", "size": 32, "shape": "square", "fill": "stroke", "icon_color": "#ffffff", "outline": {"light": "#e0e0e0", "dark": "#525252"}, "classes": [ "component", "node" ], "diagrams": [ "architecture" ]},
+    {"type": "icon", "classes": [ "actor" ], "diagrams": [ "architecture" ], "icon": "icons/person.svg", "icon_color": {"light": "#616161", "dark": "#adadad"}},
+    {"type": "avatar", "size": 28, "classes": [ "actor" ], "diagrams": [ "sequence" ], "fill": {"light": "#e6e6e6", "dark": "#333333"}, "icon": "icons/person.svg", "icon_color": {"light": "#616161", "dark": "#adadad"}},
+    {"type": "pill", "classes": [ "connection", "async" ], "diagrams": [ "architecture" ]},
+    {"type": "pill", "classes": [ "flow", "optional" ], "diagrams": [ "flowchart", "swimlanes" ]}
+  ]
+}

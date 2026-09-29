@@ -1,0 +1,12 @@
+# Lanes are grids (see core/lanes.go). Steps share one height so ranks line up
+# across lanes; gap cells pad a lane where it has no step at that rank.
+classes: {
+  lane: {label.near: top-center; vertical-gap: 48; horizontal-gap: 48}
+  step: {height: 64}
+  start: {shape: oval; height: 64}
+  end: {shape: oval; height: 64}
+  decision: {shape: diamond; height: 64}
+  gap: {label: ""; height: 64; width: 8; style.opacity: 0}
+  flow: {}
+  optional: {style.stroke-dash: 4}
+}

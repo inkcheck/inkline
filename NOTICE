@@ -1,0 +1,13 @@
+inkline
+Copyright 2026 The inkline authors
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+inkline redistributes third-party software and assets under their own licences:
+IBM Plex Sans, Open Sans and Selawik (SIL Open Font License 1.1), Carbon and
+Cloudscape icons and design tokens (Apache License 2.0; Cloudscape: Copyright
+Amazon.com, Inc. or its affiliates), Fluent UI icons and design tokens (MIT
+License; Copyright Microsoft Corporation), D2 (Mozilla Public License 2.0) and
+its dependencies. See THIRD_PARTY_NOTICES.md for every licence text.
+
+inkline is not affiliated with or endorsed by IBM, Amazon or Microsoft.

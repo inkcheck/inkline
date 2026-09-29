@@ -1,0 +1,34 @@
+vars: { inkline: { diagram: architecture; design_system: cloudscape } }
+
+users: Users {class: actor}
+aws: AWS Cloud {
+  class: aws-cloud
+  region: us-east-1 {
+    class: region
+    vpc: VPC 10.0.0.0/16 {
+      class: vpc
+      az: Availability Zone a {
+        class: availability-zone
+        public: Public subnet {
+          class: public-subnet
+          alb: Load balancer {class: network}
+        }
+        private: Private subnet {
+          class: private-subnet
+          asg: Auto Scaling group {
+            class: auto-scaling-group
+            app: Orders service {class: compute}
+          }
+          db: Aurora {class: data}
+        }
+      }
+    }
+    s3: Assets bucket {class: storage}
+    cognito: Cognito {class: security}
+  }
+}
+users -> aws.region.vpc.az.public.alb: HTTPS
+users -> aws.region.cognito: sign in
+aws.region.vpc.az.public.alb -> aws.region.vpc.az.private.asg.app
+aws.region.vpc.az.private.asg.app -> aws.region.vpc.az.private.db: SQL
+aws.region.vpc.az.private.asg.app -> aws.region.s3: assets

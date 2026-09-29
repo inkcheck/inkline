@@ -1,0 +1,10 @@
+classes: {
+  participant: {...${carbon.node}; style: {fill: ${color.surface-subtle}; stroke: ${color.outline}}}
+  # D2 sizes a sequence actor's person shape itself, ignoring width and height,
+  # so actors are IBM large nodes instead: a colour block in the actor colour
+  # holding the user icon (see the manifest's decorators).
+  actor: {...${carbon.node}; shape: rectangle; width: 192; style: {fill: ${color.surface}; stroke: ${color.actor}}}
+  message: {...${carbon.line}; style.stroke: ${color.line}}
+  reply: {...${carbon.line}; style: {stroke: ${color.line}; stroke-dash: 3}}
+  async: {...${carbon.line}; style.stroke: ${color.line}; target-arrowhead.shape: arrow}
+}

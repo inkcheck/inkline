@@ -1,0 +1,17 @@
+# Lanes stretch every step to the lane's width (connections within a lane stay
+# straight), and all steps share one height so ranks line up across lanes.
+classes: {
+  lane: {...${cloudscape.container}; vertical-gap: 48; horizontal-gap: 48; style: {fill: ${color.surface-subtle}; stroke: ${color.divider}; border-radius: 16}}
+  step: {...${cloudscape.node}; width: 180; label.near: center-left; style: {fill: ${color.surface}; stroke: ${color.card-border}; border-radius: 8}}
+  start: {...${cloudscape.node}; shape: rectangle; width: 180; style: {fill: ${color.success-subtle}; stroke: ${color.success}; border-radius: 24}}
+  end: {...${cloudscape.node}; shape: rectangle; width: 180; style: {fill: ${color.success-subtle}; stroke: ${color.success}; border-radius: 24}}
+  # No cloudscape.node spread: its font colour would win over on-strong.
+  decision: {
+    shape: diamond
+    height: 48
+    style: {fill: ${color.strong}; stroke: ${color.strong}; stroke-width: 1; font-size: 14; font-color: ${color.on-strong}; bold: true}
+  }
+  gap: {label: ""; height: 48; width: 8; style.opacity: 0}
+  flow: {...${cloudscape.line}; style.stroke: ${color.line}}
+  optional: {...${cloudscape.line}; style: {stroke: ${color.line}; stroke-dash: 3}}
+}

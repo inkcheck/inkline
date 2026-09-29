@@ -1,0 +1,48 @@
+# Fluent 2: shared styles, modifiers and domain colours.
+# Shared maps hold only what no class overrides: a spread (...${x}) wins over
+# a map's own keys, so every class sets its own fill, stroke and corners.
+vars: {
+  fluent: {
+    # A card: 48px tall, 1px Stroke2 border, 14px semibold label (Fluent's
+    # Body 1 Strong).
+    node: {
+      height: 48
+      style: {stroke-width: 1; font-size: 14; font-color: ${color.text}; bold: true}
+    }
+    # A container, labelled top-left like a Fluent card header.
+    container: {
+      label.near: top-left
+      style: {stroke-width: 1; font-size: 14; font-color: ${color.heading}; bold: true}
+    }
+    line: {
+      style: {stroke-width: 1; font-size: 12; font-color: ${color.text-muted}; italic: false; bold: false}
+    }
+  }
+}
+
+classes: {
+  # Modifiers: multiple = offset copies, added = double outline, changed =
+  # dashed, removed = struck through (strike decorator). None of them
+  # recolours the node, so the domain colour stays.
+  multiple: {style.multiple: true}
+  added: {style.double-border: true}
+  changed: {style.stroke-dash: 3}
+  removed: {}
+
+  # Domain colours, from Fluent's shared colour palette. They set the
+  # outline; architecture badges and legend swatches are filled with it.
+  security: {style.stroke: ${color.security}}
+  storage: {style.stroke: ${color.storage}}
+  devops: {style.stroke: ${color.devops}}
+  application: {style.stroke: ${color.application}}
+  data: {style.stroke: ${color.data}}
+  network: {style.stroke: ${color.network}}
+  observability: {style.stroke: ${color.observability}}
+  vpc: {style.stroke: ${color.vpc}}
+  compute: {style.stroke: ${color.compute}}
+  backend: {style.stroke: ${color.backend}}
+
+  # Marker classes for decorators.
+  swatch: {}
+  pill: {}
+}

@@ -1,0 +1,30 @@
+{
+  "name": "cloudscape",
+  "description": "AWS's Cloudscape Design System for technical diagrams: Open Sans, Cloudscape colour tokens, AWS service-category colours, rounded cards, service tiles, Cloudscape avatars, and AWS architecture groupings (AWS Cloud, Region, Availability Zone, VPC, subnets, security and Auto Scaling groups).",
+  "extends": "plain",
+  "tokens": {
+    "light": "tokens-light.d2",
+    "dark": "tokens-dark.d2"
+  },
+  "styles": [
+    "base.d2"
+  ],
+  "pad": 48,
+  "fonts": {
+    "regular": "fonts/OpenSans-Regular.ttf",
+    "italic": "fonts/OpenSans-Italic.ttf",
+    "bold": "fonts/OpenSans-Bold.ttf",
+    "semibold": "fonts/OpenSans-SemiBold.ttf"
+  },
+  "decorators": [
+    {"type": "fill", "classes": [ "swatch" ]},
+    {"type": "pill", "classes": [ "pill" ]},
+    {"type": "strike", "classes": [ "removed" ]},
+    {"type": "fill", "classes": [ "component" ], "diagrams": [ "architecture" ]},
+    {"type": "icon", "classes": [ "actor" ], "diagrams": [ "architecture" ], "icon": "icons/user-profile.svg", "icon_stroke": 2, "icon_color": "#ffffff"},
+    {"type": "avatar", "size": 28, "classes": [ "actor" ], "diagrams": [ "sequence" ], "fill": "#424650", "icon": "icons/user-profile.svg", "icon_stroke": 2, "icon_color": "#ffffff"},
+    {"type": "pill", "classes": [ "connection", "async" ], "diagrams": [ "architecture" ]},
+    {"type": "pill", "classes": [ "flow", "optional" ], "diagrams": [ "flowchart", "swimlanes" ]},
+    {"type": "chevron"}
+  ]
+}
